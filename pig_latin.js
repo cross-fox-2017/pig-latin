@@ -52,9 +52,7 @@ var convertSentence = function (word) {
     res3.push(res4);
     resAkhir2 = res3.join(" ");
   }
-
   return resAkhir2;
-
 }
 
 //console.log(convertSentence("llllaz kkkeyuy pppiyey"));
