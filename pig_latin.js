@@ -9,7 +9,11 @@ const rl = readline.createInterface({
 rl.setPrompt(`Silahkan masukkan kata atau kalimat anda disini \n`)
 rl.prompt()
 rl.on('line', (word) => {
-    piglatinplus(word);
+    if (word == ""){
+      rl.close()
+    } else {
+      console.log(piglatinplus(word));
+    }
 })
 
 function piglatin (kata){
