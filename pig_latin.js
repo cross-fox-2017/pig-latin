@@ -8,13 +8,17 @@ let rl = readline.createInterface({
   output:process.stdout
 });
 
+rl.question('konversi : ', (wordx) => {
 
-//rl.prompt();
-//rl.setPrompt(prompt,length)
-rl.question('konversi : ', (word) => {
+    let array = wordx.split(" ");
+    let temp = "";
+    for(let i = 0 ; i<array.length ;i++){
+      temp += " "+ pig_latin(array[i]);
+    //console.log(temp);
+    }
 
 
-  //    var array = word.toString();
+    function pig_latin(word){
       var vowels = /[aieou]/gi;
       var result = '';
 
@@ -30,14 +34,15 @@ rl.question('konversi : ', (word) => {
                   for(var n = 0; n < i; n++){
                       result += word[n];
                   }
-                   result + "ay";
+                   result += "ay";
               }
           }
 
-          console.log(result);
-
-
+          //console.log(result);
+          return result;
 
   rl.close();
+}
 
+console.log(temp);
 });
