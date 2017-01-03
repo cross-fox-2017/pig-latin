@@ -1,36 +1,23 @@
 "use strict"
 
 const convertSingleWord = (str) => {
-  let newArr = [];
-  let newArr2 = [];
+  let arr=[];
   let vowel = ['a','i','u','e','o'];
-  let limit = 0;
-
-  str = str.split('');
-
-  for(let i = 0; i < vowel.length; i++){
-    if(str[0] === vowel[i]){
-      return str.join('');
-    }
+  for(let i=0; i<vowel.length; i++){
+      if(str[0]===vowel[i]){
+          return str;
+      }
   }
-
-  for(let i = 0; i < vowel.length; i++){
-    let idx = str.indexOf(vowel[i])
-    if(idx > 0){
-      limit = idx;
-      break;
-    }
+  let posisi = str.replace(/[^a|i|u|e|o]/g,'');
+  let x = str.indexOf(posisi[0]);
+  for(let i=x; i<str.length; i++){
+      arr.push(str[i]);
   }
-
-  for(let i = 0; i < limit; i++){
-    newArr.push(str[i]);
+  for(let i=0; i<x; i++){
+      arr.push(str[i]);
   }
-
-  for(let i = limit; i < str.length; i++){
-    newArr2.push(str[i]);
-  }
-
-  return newArr2.join('')+newArr.join('')+'ay.';
+  arr.push('ay.');
+  return arr.join('');
 }
 
 function convertCompleteSentence(str){
