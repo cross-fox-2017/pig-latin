@@ -29,11 +29,14 @@ function newPigLatin(sentence) {
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
-
 })
+rl.setPrompt('Input Word / Sentence: ')
 
-rl.question('Input the word: ', (answer) => {
-  console.log(newPigLatin(answer));
+rl.prompt()
 
-  rl.close()
+rl.on('line', (line) => {
+  console.log(newPigLatin(line));
+  rl.prompt()
+}).on('close',()=> {
+  process.exit(0)
 })
