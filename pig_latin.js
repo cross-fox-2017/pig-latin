@@ -8,37 +8,35 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-rl.question('Masukan suatu kata: ', (word) => {
+rl.question('Input: ', (word) => {
     // TODO: Log the answer in a database
-    var wordStrLo = word.toString().toLowerCase();
+    var wordArr = word.toString().toLowerCase().split(' ');
     var vowelArr = ["a", "i", "u", "e", "o"];
-    var tampung = [];
+    var tampung = "";
+    var tampungArr = [];
 
-    function pigLatin(word) {
-      if (vowelArr.indexOf(wordStrLo[0]) >= 0) {
-          return `Bahasa pig latin untuk awalan vowel adalah: ` + word;
-      } else {
-        // for (var i = 0; i<vowelArr.length; i++) {
-        //   if (wordStrLo.indexOf(vowelArr[i])>0) {
-        //     var indexVowel =  wordStrLo.indexOf(vowelArr[i]);
-        //     tampung.push(wordStrLo[indexVowel - 1]);
-        //     var tempStr = wordStrLo.substring(indexVowel,wordStrLo.length);
-        //     return `Bahasa pig latinnya untuk awal konsonan adalah: ` +tempStr+tampung+"ay";
-        //   }
-        // }
-          for (var i = 0; i < wordStrLo.length; i++) {
-            for (var j = 0; j < vowelArr.length; j++) {
-              if (wordStrLo[i] === vowelArr[j]) {
-                  tampung.push(wordStrLo[i - 1]);
-                  var tempWord = wordStrLo.substring(i,wordStrLo.length);
-                  //pigLatin(wordStrLo);
-                  return `Bahasa pig latinnya untuk awal konsonan adalah: ` + tempWord+tampung+"ay";
-              }
+    function pigLatin(wordArr) {
+        if (vowelArr.indexOf(wordArr[0]) >= 0) {
+            return  wordArr;
+        } else {
+            var vowelPos = -1;
+            //get posisi huruf hidup pertama
+            for (var i = 0; i < wordArr.length; i++) {
+                if (vowelArr.indexOf(wordArr[i]) >= 0) {
+                    vowelPos = i;
+                    tampung = wordArr.substring(0, i)
+                    return wordArr.slice(vowelPos, wordArr.length) + tampung + 'ay';
+                }
+
             }
-          }
-      }
+        }
     }
-    console.log(pigLatin(word))
+
+    for (var j = 0; j< wordArr.length; j++) {
+      tampungArr.push(pigLatin(wordArr[j]));
+    }
+
+    console.log(tampungArr.join(' '))
 
     rl.close();
 });
