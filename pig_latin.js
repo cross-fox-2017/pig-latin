@@ -33,5 +33,8 @@ rl.prompt();
 rl.on('line', (input) =>{
   console.log(`Your Input "${input}" Converted Pig Latin`);
   console.log(pig_latin_sentences(input));
-  console.log(`ReInput or CTRL+C to exit`);
+  console.log(`ReInput or Tekan "EXIT" Untuk Keluar`);
+  if(input.toUpperCase()=="EXIT"){
+    rl.close();
+  }
 })
