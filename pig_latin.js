@@ -9,13 +9,25 @@ const rl = readline.createInterface({
 });
 
 rl.setPrompt('Masukan Kata untuk Dikonversi ke Latin > ');
-
+rl.prompt();
 rl.on("line", (answer) => {
-  console.log('Input : '+answer);
-  console.log('Output : '+pigLatin(answer));
-  rl.prompt();
-})
+if(competeSentence(answer))
+  {
+    var len = answer.split(" ")
+    var r = "";
+    console.log('Input : '+answer);
+    for(var count = 0;count < len.length; count++){
+      r += " "+pigLatin(len[count]);
+    }
+    console.log("Output : "+r);
+  }else{
+    console.log('Input : '+answer);
+    console.log('Output : '+pigLatin(answer));
 
+  }
+  rl.prompt();
+
+})
 
 function pigLatin(word){
 
@@ -36,13 +48,11 @@ function pigLatin(word){
 }
 
 function competeSentence(word){
-
     if(word.split(" ").length > 1)
     {
       return true;
     }
-      return false;
-
+    return false;
 }
 
 
