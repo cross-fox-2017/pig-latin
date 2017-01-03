@@ -1,17 +1,16 @@
 "use strict"
 
 //use readline to fix this challenge
-// const readline = require('readline');
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout
-// });
-// rl.setPrompt(`Silahkan masukkan kata atau kalimat anda disini \n`)
-// rl.prompt()
-// rl.on('line', (word) => {
-//     piglatin(word);
-// })
-// rl.close
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+rl.setPrompt(`Silahkan masukkan kata atau kalimat anda disini \n`)
+rl.prompt()
+rl.on('line', (word) => {
+    piglatinplus(word);
+})
 
 function piglatin (kata){
   var vokal = ["a", "i", "u", "e", "o"];
@@ -27,6 +26,15 @@ function piglatin (kata){
       }
     }
   }
-  return kata
 }
-console.log(piglatin("siapa"))
+
+function piglatinplus (kalimat){
+  kalimat = kalimat.split(" ")
+  var hasil = []
+  for (var i = 0; i < kalimat.length; i++){
+    hasil.push(piglatin(kalimat[i]))
+  }
+  return hasil.join(" ")
+}
+
+// console.log(piglatinplus("siapa nama aku yang sebenarnya"))
