@@ -15,6 +15,15 @@ function toPigLatin(word) {
       return temp + (word.slice(0,1) + pig)
     }
 }
+
+function newPigLatin(sentence) {
+  var arr = sentence.split(' ')
+  var res = ''
+  for (var i = 0; i < arr.length; i++) {
+    res += toPigLatin(arr[i]) + ' '
+  }
+  return res
+}
 // console.log(toPigLatin('Hello'));
 
 const rl = readline.createInterface({
@@ -24,7 +33,7 @@ const rl = readline.createInterface({
 })
 
 rl.question('Input the word: ', (answer) => {
-  console.log(toPigLatin(answer));
+  console.log(newPigLatin(answer));
 
   rl.close()
 })
