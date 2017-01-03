@@ -9,11 +9,11 @@ let rl = readline.createInterface({
 });
 
 
-rl.prompt();
+//rl.prompt();
 //rl.setPrompt(prompt,length)
-rl.on('PigLatin ', (word) => {
+rl.question('konversi : ', (word) => {
 
-  var pigLatin = function(word) {
+
   //    var array = word.toString();
       var vowels = /[aieou]/gi;
       var result = '';
@@ -23,24 +23,18 @@ rl.on('PigLatin ', (word) => {
                 word[i] === 'e' ||
                 word[i] === 'i' ||
                 word[i] === 'u' ||
-                word[i] === 'o'
-
-            ) {
+                word[i] === 'o') {
                   for(var x = i; x < word.length; x++){ //mengambil dri awal smpai
                       result += word[x];
                   }
                   for(var n = 0; n < i; n++){
                       result += word[n];
                   }
-                  return result + "ay";
+                   result + "ay";
               }
           }
-  }
 
-  console.log(result);
-
-
-  }
+          console.log(result);
 
 
 
