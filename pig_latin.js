@@ -4,7 +4,7 @@ const readline = require('readline');
 
 const pig_latin = readline.createInterface({
   input : process.stdin,
-  output : process.stdot
+  output : process.stdout
 });
 
 function Pig_Latin_Words(words){
@@ -20,7 +20,7 @@ function Pig_Latin_Words(words){
   }
 }
 
-pig_latin.question('Insert any word!', (words) => {
+pig_latin.question('Insert any word: ', (words) => {
     var arr_words = words.split(" ");
 //
     if(arr_words.length === 1){
