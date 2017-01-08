@@ -1,16 +1,22 @@
 "use strict"
 
-//use readline to fix this challenge
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
+  prompt: 'Input> '
 });
 
-rl.question('Input :', (answer) => {
+rl.prompt();
+
+rl.on('line', (answer) => {
   console.log('Output:',pig_sentence(answer));
-  rl.close();
+  rl.prompt();
+}).on('close', () => {
+  console.log('Success!');
+  process.exit(0);
 });
+
 
 function pig_latin(answer){
   let strVowel = ["A","I","U","E","O"];
@@ -43,5 +49,3 @@ function pig_sentence(answer){
     return resultSentence.join(" ");
   }
 }
-
-// console.log("saya iqbal");
