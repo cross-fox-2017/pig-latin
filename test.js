@@ -1,30 +1,6 @@
 
-//use readline to fix this challenge
-const readline = require('readline');
-const prompt = require('prompt');
-
-let rl = readline.createInterface({
-  input:process.stdin,
-  output:process.stdout
-});
-
-rl.prompt();
-// rl.question('konversi : ', (wordx) => {
-//
-// }) ;
-
-rl.on('line', (line) => {
-
-      let array = line.split(" ");
-      let temp = "";
-      for(let i = 0 ; i<array.length ;i++){
-        temp += " "+ pig_latin(array[i]);
-      // console.log(array);
-      }
-
-
       function pig_latin(word){
-        // console.log(word)
+        console.log(word)
         var vowels = /[aieou]/gi;
         var result = '';
         var vowelsx = ['a','i','u','e','o'];
@@ -52,6 +28,4 @@ rl.on('line', (line) => {
 
     //rl.close();
   }
-
-  console.log(temp);
-});
+  console.log(pig_latin("hehehehe"))
