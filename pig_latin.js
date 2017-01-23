@@ -2,6 +2,7 @@
 
 //use readline to fix this challenge
 const readline = require('readline');
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -25,13 +26,13 @@ rl.on('line', (line) => {
   process.exit(0);
 });
 
+
 function perWord(word){
   var word = word.toLowerCase();
   var output='';
   var arr=[];
   arr= word.split('');
   var x='';
-
     if(word[0]==='a'||word[0]==='i'||word[0]==='u'||word[0]==='e'||word[0]==='o'){
       output= word;
     }
@@ -39,7 +40,6 @@ function perWord(word){
       arr.splice(0,1);
       output= arr.join('')+word[0]+'ay';
     }
-
   if(output[0]==='a'||output[0]==='i'||output[0]==='u'||output[0]==='e'||output[0]==='o'){
 
     return output;
@@ -48,7 +48,6 @@ function perWord(word){
    var hasil = output.replace('ay','')
   return pigLatin(hasil);
   }
-  //}
 }
 function pigLatin(sentence){
   var arr=sentence.split(' ');
